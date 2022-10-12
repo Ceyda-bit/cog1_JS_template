@@ -22,6 +22,7 @@
         var scale = parameter.scale ? parameter.scale : 100;
         
         instance.vertices = [];
+        //Fenster
         const fensteru1 = newVertex(-0.2,1.8, 1.5);
         const fensteru2 = newVertex(-0.9,1.8, 1.3);
         const fenstero1 = newVertex(-0.2,2.8, 1.45);
@@ -38,23 +39,22 @@
         const fenstero5 = newVertex(-1.4,-4.3, 1.2);
         const fenstero6 = newVertex(-1.8,-4.3, 0.4);
 
-        const b = newVertex(-2.4,-5.5,1.5);
-        const b2 = newVertex(0,-5.5,2);
-
-        const a = newVertex(-1.4,-5.5,2.2);
-        const a2 = newVertex(0,-5.5,2.7);
+        //Erste Stufe
+        const a = newVertex(-1.4,-5.5,2.2); 
+        const a2 = newVertex(0,-5.5,2.7);   
         const a3 = newVertex(-1.4,-5.2,2.2);
-        const a4 = newVertex(0,-5.2,2.7);
-        const a5 = newVertex(-1.4,-5.2,1.5);
+        const a4 = newVertex(0,-5.2,2.7);   
+        const a5 = newVertex(-1.4,-5.2,1.5); 
         const a6 = newVertex(0,-5.2,2);
 
+        //zweite Stufe
         const a7 = newVertex(-1.4,-4.9,1.5);
         const a8 = newVertex(0,-4.9,2);
         const a9 = newVertex(-1.4,-4.9,1.9);
         const a10 = newVertex(0,-4.9,2.4);
         const a11 = newVertex(-1.4,-5.2,1.9);
         const a12 = newVertex(0,-5.2,2.4);
-
+        //dritte Stufe
         const c = newVertex(-1.4,-5.5,1.5);
         const c1 = newVertex(0,-5.5,2);
         const c2 = newVertex(-1.4,-5.5,2.5);
@@ -64,20 +64,24 @@
         const c6 = newVertex(-1.4,-5.8,2.5);
         const c7 = newVertex(0,-5.8,3);
 
+        //Tuer
         const otur1 = newVertex(-0.2,6.2,1.3);
         const otur2 = newVertex(-0.8,6.2,1.1);
         const otur3 = newVertex(-0.2,5,1.3);
         const otur4 = newVertex(-0.8,5,1.1);
 
+        //Schnurr
         const schnurro= newVertex(0,7.6,0);
         const schnurru= newVertex(0,7.4,0);
 
+        //lampe
         const lampe1= newVertex(-0.3,7.2,0);
         const lampe2= newVertex(0.3,7.2,0);
         const lampe4= newVertex(0,7.2,-0.2);
         const lampe5= newVertex(0,7.2,0.2);
         const lampe6= newVertex(0,7,0);
 
+        //haus
         const dhaus11 = newVertex(-0.8,8,0);
         const dhaus12 = newVertex(0.8,8,0);
 
@@ -116,6 +120,7 @@
         const fhaus7 = newVertex(0.7,6.4,-0.6);
         const fhaus8 = newVertex(-0.7,6.4,-0.6);
 
+        //zaun
         const zaun1 = newVertex(-1.4,5.5,1.5);
         const zaun2 = newVertex(0,5.5,2);
         const zaun3 = newVertex(1.4,5.5,1.5);
@@ -135,6 +140,7 @@
         const zUnten7 = newVertex(-1.4,5,-1.5);
         const zUnten8 = newVertex(-2, 5,0.1);
         const zUnten9 = newVertex(-1.4,5,1.5);
+
          //Säule
          const sragend1 = newVertex(-1,6.4,1);
          const sragend2 = newVertex(1,6.4,1);
@@ -163,12 +169,14 @@
         const sUnten7 = newVertex(-1.4,-5.8,-1.5);
         const sUnten8 = newVertex(-2,-5.8,0.1);
         const sUnten9 = newVertex(-1.4,-5.8,1.5);
-  
+
+        //Tuer
         const utur1 = newVertex(-0.3,-4.9,1.9);
         const utur2 = newVertex(-1.1,-4.9,1.6);
         const utur3 = newVertex(-0.3,-3.6, 1.8);
         const utur4 = newVertex(-1.1,-3.6, 1.5);
 
+        //Trenn Stockwerke
         const trenn1 = newVertex(-1.3,-3, 1.4);
         const trenn2 = newVertex(0,-3, 1.9);
         const trenn3 = newVertex(1.3,-3,1.3);
@@ -197,23 +205,23 @@
         const otrenn8 = newVertex(0,4,-1.4);
 
         instance.polygonVertices = [
-            [fenstero5, fensteru5,fensteru6, fenstero6],
-            [fenstero3, fensteru3,fensteru4, fenstero4],
-            [fenstero1, fensteru1, fensteru2, fenstero2],
-            [trenn1,trenn2,trenn3, trenn4, trenn5, trenn6,trenn7, trenn8],
-            [mtrenn1,mtrenn2,mtrenn3, mtrenn4, mtrenn5, mtrenn6,mtrenn7, mtrenn8],
-            [otrenn1,otrenn6,otrenn2, otrenn7, otrenn3, otrenn8,otrenn4, otrenn5,otrenn1],
-            [utur1,utur3,utur4,utur2], 
-            [c2,c6, c7, c3],
-            [c4,c6, c7, c5], 
-            [c,c2, c3, c1], 
-            [a9,a11, a12, a10], 
-            [a7,a9,a10,a8], 
-            [a3,a5, a6 , a4], 
-            [a, a3, a4, a2], 
-           
+            [fenstero5, fensteru5,fensteru6, fenstero6], // Fenster unten
+            [fenstero3, fensteru3,fensteru4, fenstero4], //Fenster mittleres Stockwerk
+            [fenstero1, fensteru1, fensteru2, fenstero2], //Fenster oben
+            [trenn1,trenn2,trenn3, trenn4, trenn5, trenn6,trenn7, trenn8], //trenn Stockwerk unten
+            [mtrenn1,mtrenn2,mtrenn3, mtrenn4, mtrenn5, mtrenn6,mtrenn7, mtrenn8],//trenn Stockwerk mittel
+            [otrenn1,otrenn6,otrenn2, otrenn7, otrenn3, otrenn8,otrenn4, otrenn5,otrenn1],//trenn Stockwerk oben
+            [utur1,utur3,utur4,utur2],  //untere Tuer
+              [c2,c6, c7, c3],//dritte Stufe Unterseite
+              [c4,c6, c7, c5], //dritte Stufe Vorderseite
+              [c,c2, c3, c1], //dritte Stufe Oberseite
+              [a9,a11, a12, a10], //erste Stufe Vorderseite
+              [a7,a9,a10,a8], //erste Stufe Oberseite
+              [a3,a5, a6 , a4], //zweite Stufe Oberseite
+              [a, a3, a4, a2],  //zweite Stufe Vorderseite
+            
 
-            [otur1,otur3,otur4,otur2], 
+            [otur1,otur3,otur4,otur2], // obere Tuer 
             [schnurro,schnurru],
             [schnurru, lampe1,lampe6,lampe2],
             [schnurru, lampe2,lampe6,lampe4],
