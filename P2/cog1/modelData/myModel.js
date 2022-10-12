@@ -174,18 +174,18 @@
         const trenn3 = newVertex(1.3,-3,1.3);
         const trenn4 = newVertex(1.9,-3,-0.1);
         const trenn5 = newVertex(1.3,-3,-1.3);
-        const trenn6 = newVertex(0,-3,-2);
+        const trenn6 = newVertex(0,-3,-1.9);
         const trenn7 = newVertex(-1.3,-3,-1.4);
-        const trenn8 = newVertex(-1.9,-3,-0.1);
+        const trenn8 = newVertex(-1.9,-3,-0.05);
 
         const mtrenn1 = newVertex(-1.2,0, 1.3);
-        const mtrenn2 = newVertex(-0.1,0, 1.8);
+        const mtrenn2 = newVertex(-0.1,0, 1.7);
         const mtrenn3 = newVertex(1.1,0,1.3);
         const mtrenn4 = newVertex(1.7,0,-0.2);
         const mtrenn5 = newVertex(1.1,0,-1.3);
-        const mtrenn6 = newVertex(-0.1,0,-1.6);
+        const mtrenn6 = newVertex(-0.1,0,-1.65);
         const mtrenn7 = newVertex(-1.1,0,-1.3);
-        const mtrenn8 = newVertex(-1.7,0,-0.2);
+        const mtrenn8 = newVertex(-1.7,0,-0.05);
        
         const otrenn1 = newVertex(-1,4,1);
         const otrenn2 = newVertex(1,4,1);
