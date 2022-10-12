@@ -18,7 +18,7 @@ function(exports, scenegraph, animation) {
 	function init() {
 
 		var cubeNode = scenegraph.createNodeWithModel("myModel", "myModel", {scale:50});
-		cubeNode.rotateTo([0.2,0.4, 0]);
+		cubeNode.rotateTo([0.05,0.4, 0]);
 
 		// BEGIN exercise myModel
 		
