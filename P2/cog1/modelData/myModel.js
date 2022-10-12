@@ -22,7 +22,23 @@
         var scale = parameter.scale ? parameter.scale : 100;
         
         instance.vertices = [];
-        const b = newVertex(-1.4,-5.5,1.5);
+        const fensteru1 = newVertex(-0.2,1.8, 1.5);
+        const fensteru2 = newVertex(-0.9,1.8, 1.3);
+        const fenstero1 = newVertex(-0.2,2.8, 1.45);
+        const fenstero2 = newVertex(-0.9,2.8, 1.25);
+       // const test4 = newVertex(-1.8,-1.5, 0.1);
+    
+        const fensteru3 = newVertex(0.9,-1.8, 1.4);
+        const fensteru4 = newVertex(0.4,-1.8, 1.6);
+        const fenstero3 = newVertex(0.9,-1.3, 1.4);
+        const fenstero4 = newVertex(0.4,-1.3, 1.6);
+      
+        const fensteru5 = newVertex(-1.4,-3.8, 1.2);
+        const fensteru6 = newVertex(-1.8,-3.8, 0.4);
+        const fenstero5 = newVertex(-1.4,-4.3, 1.2);
+        const fenstero6 = newVertex(-1.8,-4.3, 0.4);
+
+        const b = newVertex(-2.4,-5.5,1.5);
         const b2 = newVertex(0,-5.5,2);
 
         const a = newVertex(-1.4,-5.5,2.2);
@@ -181,6 +197,9 @@
         const otrenn8 = newVertex(0,4,-1.4);
 
         instance.polygonVertices = [
+            [fenstero5, fensteru5,fensteru6, fenstero6],
+            [fenstero3, fensteru3,fensteru4, fenstero4],
+            [fenstero1, fensteru1, fensteru2, fenstero2],
             [trenn1,trenn2,trenn3, trenn4, trenn5, trenn6,trenn7, trenn8],
             [mtrenn1,mtrenn2,mtrenn3, mtrenn4, mtrenn5, mtrenn6,mtrenn7, mtrenn8],
             [otrenn1,otrenn6,otrenn2, otrenn7, otrenn3, otrenn8,otrenn4, otrenn5,otrenn1],
@@ -192,13 +211,7 @@
             [a7,a9,a10,a8], 
             [a3,a5, a6 , a4], 
             [a, a3, a4, a2], 
-            [a,b, b2, a2], 
-            [a6,a8,a10,a12],//Seitenrand Treppen 3 Stufe
-            [a7,a9,a11,a5], //Seitenrand Treppen 3 Stufe
-            [b2, a2,a4,  a6,],// Seitenrand Treppen 2 Stufe         
-            [b,a5, a3, a],// Seitenrand Treppen 2 Stufe
-            [b, c4,c6, c2], // Seitenrand Treppen 1 Stufe
-            [b2,c5, c7, c3], //Seitenrand Treppen 1 Stufe
+           
 
             [otur1,otur3,otur4,otur2], 
             [schnurro,schnurru],
