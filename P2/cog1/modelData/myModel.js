@@ -22,6 +22,7 @@
         var scale = parameter.scale ? parameter.scale : 100;
         
         instance.vertices = [];
+        // Leuchturm bestandteile : 
         //Fenster
         const fensteru1 = newVertex(-0.2,1.8, 1.5);
         const fensteru2 = newVertex(-0.9,1.8, 1.3);
