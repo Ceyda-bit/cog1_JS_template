@@ -205,6 +205,11 @@
         const otrenn7 = newVertex(1.4,4,0);
         const otrenn8 = newVertex(0,4,-1.4);
 
+        const t1 = newVertex(-1,4,1);
+        const t2 = newVertex(1,4,1);
+        const t3 = newVertex(1,5,1);
+        const t4 = newVertex(-1,5,1);
+
         instance.polygonVertices = [
             [fenstero5, fensteru5,fensteru6, fenstero6], // Fenster unten
             [fenstero3, fensteru3,fensteru4, fenstero4], //Fenster mittleres Stockwerk

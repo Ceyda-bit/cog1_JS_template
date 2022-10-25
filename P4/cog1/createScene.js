@@ -10,23 +10,21 @@
 define(["exports", "scenegraph", "animation"], //
 function(exports, scenegraph, animation) {
     "use strict";
-
+	
 	/**
 	 * 	Call methods form the scene-graph (tree) module to create the scene.
 	 *
 	 */
 	function init() {
-
-		var cubeNode = scenegraph.createNodeWithModel("cube", "cube", {scale:300});
-		cubeNode.rotateTo([1.6, -3.87, 0]);
-
+		
 		// BEGIN exercise myModel
-		
+		//var cubeNode = scenegraph.createNodeWithModel("cube", "cube", {scale:300});
+		//cubeNode.rotateTo([1.6, -3.87, 0]);
 		// END exercise myModel
-		
-		return;
+		//return; 
+	
 
-		//var cubeNode = scenegraph.createNodeWithModel("cube", "cube", {scale:100, textureURL:"brickWall.jpg"});		
+		var cubeNode = scenegraph.createNodeWithModel("cube", "cube", {scale:100, textureURL:"brickWall.jpg"});		
 		var cubeNode1 = scenegraph.createNodeWithModel("cube 1", "cube", {scale:70, textureURL:"stoneWall.jpg"});
 		cubeNode1.translate([50,200,0]);
 		//cubeNode1.rotate([1,1,1]);
@@ -80,14 +78,14 @@ function(exports, scenegraph, animation) {
 		 
 		// Set visibility of nodes (hide: set to false).
 		// Comment out what you want to see as the default is visible.
-        // cubeNode.setVisible(false);
+        cubeNode.setVisible(false);
         cubeNode1.setVisible(false);
         cubeNode2.setVisible(false);
         cubeNode3.setVisible(false);
         cubeNode4.setVisible(false);
         cubeNode5.setVisible(false);
         cubeNode6.setVisible(false);
-        insideOutPolyNode.setVisible(false);
+        insideOutPolyNode.setVisible(true);
         diamondNode.setVisible(false);
         torusNode.setVisible(false);
         torusNode1.setVisible(false);
@@ -110,7 +108,7 @@ function(exports, scenegraph, animation) {
 		// ambientLI, pointLI, pointPos, specularLI, specularLIExpo
 		scenegraph.setLights(0.5, 0.6, [200, 200, 300], 4.0, 10);
 	}
-
+	
 	// Public API.
 	exports.init = init;
 });
