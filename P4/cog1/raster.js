@@ -184,7 +184,7 @@
 				if (y != endY) {
 					addIntersection(x, y, z, interpolationWeight, edgeStartVertexIndex, edgeEndVertexIndex, edgeStartTextureCoord, edgeEndTextureCoord);
 		  		}
-				
+
 		  		z = z + dz;
 			}
 	  	}
@@ -245,17 +245,21 @@
 	  	// For the start edge we need the last edge with derivative !=0,
 	  	// Pre-calculate the derivatives for last edge !=0 of polygon.
 	  	for (var i = polygon.length; i > 0; i--) {
+
 			startPoint = vertices[polygon[i]];
 			endPoint = vertices[polygon[i-1]];
+
 			if (calcDerivative(startPoint, endPoint) != 0) {
-		  		lastDerivative = calcDerivative(startPoint, endPoint);
-		  		break;
+				lastDerivative = calcDerivative(startPoint, endPoint); 
+				break;
 			}
 	  	}
   
 	  	// Also after the rasterization with floor we need a valid triangle.
 	  	// Thus we check if lastDerivative is defined and return if(!lastDerivative).
-	  	if(!lastDerivative) return;
+	  	if(!lastDerivative) {
+			return;
+		}
   
 	  	// First raster only the edges and, if requested, store intersections for filling.
 	  	// Loop over vertices/edges in polygon.
@@ -472,14 +476,20 @@
 			// if ((line.length < 2) || (line.length % 2)) {
 			// console.log("Error in number of intersection (" + line.length + ") in line: " + y);
 			// }
-			if (line == undefined || line.length % 2 != 0) continue; 
+
+			if (line == undefined || line.length % 2 != 0){
+				 continue; 
+				}
+
 			if (line.length == 2) {
 			// Order intersection in scanline.
 			var order = line.sort((a, b) => a.x - b.x);
 			var minX = order[0].x;
 			var maxX = order[order.length - 1].x;
+
 			drawLineBresenham(minX, i, 0, maxX, i, 0, data.getColorByName("black"));
-			} else {
+			} 
+			else {
 				var order = line.sort((a, b) => a.x - b.x);
 
 				// Loop over intersections in pairs of two.
@@ -488,7 +498,7 @@
 				// Necessary for z-buffer, shading and texturing.
 	
 				// Fill line section inside polygon, loop x.
-		  		findPairs(order).map((pair) => {
+		  		findPair(order).map((pair) => {
 				drawLineBresenham(pair.minX, i, 0, pair.maxX, i, 0, data.getColorByName("black"));
 
 				// Set z shorthand.
@@ -532,27 +542,31 @@
 		// END exercise Scanline
 	
   
-	  	function findPairs(arr) {
-			var res = [];
+	  	function findPair(arr) {
+			
+			var saver = [];
+
 			for (var i = 0; i < arr.length; ) {
 		  		var startX = arr[i].x;
 		  		var currX = startX;
-		  		var offset = 0;
+		  		var move = 0;
+
 		  		if (arr[i + 1].x != currX + 1) {
-					offset += 1;
-		  		} else {
+					move =move+ 1;
+		  		} 
+				else {
 					while (i + 1 < arr.length && arr[i + 1].x == currX + 1) {
 			  			currX += 1;
-			  			offset += 1;
+			  			move =move+ 1;
 					}
 		  		}
-		  		res.push({
+		  		saver.push({
 				minX: startX,
-				maxX: arr[i + offset].x,
+				maxX: arr[i + move].x,
 		  		});
-		  		i += offset + 1;
+		  		i += move + 1;
 			}
-			return res;
+			return saver;
 	  	}
 	  // END exercise Scanline
 	}
