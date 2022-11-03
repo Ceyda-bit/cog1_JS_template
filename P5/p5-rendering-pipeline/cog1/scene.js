@@ -11,7 +11,7 @@ function(exports, dojo, domStyle, app, scenegraph, createScene, animation, raste
 	// Variables with initialization parameters.
 	//
 	// Fill or stroke polygon.
-	var fill = false;
+	var fill = true;
 	// Display normals for debug.
 	var displayNormals = false;
 	var defaultNormalLength = 50;
@@ -381,8 +381,7 @@ function(exports, dojo, domStyle, app, scenegraph, createScene, animation, raste
 
 		// Loop over polygons in model.
 		for(var p = 0; p < polygons.length; p++) {
-			//Anzahl dargestellter Polygone wird gezählt
-			polycount++;
+	
 			// Prepare the data of polygon p to pass to scanline.
 			var polygon = polygons[p];
 			var normal = polygonNormals[p];

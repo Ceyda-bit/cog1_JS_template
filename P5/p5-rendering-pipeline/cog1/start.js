@@ -36,19 +36,22 @@ require(["dojo", "dojo/parser", "dojo/domReady!"], function(dojo) {
 		  // }],
 		// If the local path to dojo is kept, we can set an absolute path to
 		// the cog1 project instead.
-		
+		paths : {
 			// Absolute path to cog1 project, local directory without
 			// HTTP-server:
 			// "cog1" : "/Users/felixgers/BHT/src/cog1/cog1_JS_template/cog1"
 			//"cog1" : "/Users/felixgers/BHT/src/cog1/cog1_JS_template/cog1"
 			//"cog1" : "/home/felix/BHT/src/cog1/cog1_JS_template/cog1"
-			// "cog1" : "file:///U:/BHT/src/cog1/cog1_JS_template"
+			// "cog1" : "/cog1_JS_template/cog1"
+			// "cog1" : "/xampp/htdocs/cog1_JS_template/cog1"
+			
+			//"cog1" : "/~s85393/cg1/p5-rendering-pipeline/cog1"
+			"cog1" : "/home/jenserhardt/code/cg-rendering-pipeline/P5/p5-rendering-pipeline/cog1"
+			// "cog1" : "/MIM/CG1/P4/p4-rendering-pipeline/cog1"
 			// On same [maybe local] HTTP-server as used to load dojo:
-			paths: {
-				cog1: `${window.location.href.replace("index.html", "")}/cog1`,
-			  },
+			// "cog1" : "/BHT/src/cog1/cog1_JS_template/cog1"
 			// "cog1" : "/~gers/cog1_sol/cog1"
-		
+		},
 		// Add one entry for each custom module.
 		// This is, among others, necessary to apply the path parameter.
 		aliases : [
