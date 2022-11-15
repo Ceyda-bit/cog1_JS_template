@@ -6,7 +6,7 @@
  * @namespace cog1
  * @module node
  */
-define(["exports", "shader"], function(exports, shader) {
+ define(["exports", "shader"], function(exports, shader) {
     "use strict";
 
 	/**
@@ -262,7 +262,11 @@ define(["exports", "shader"], function(exports, shader) {
 			// BEGIN exercise Shear
 			// Include shearing.
 			// Modify the matrix this.localShear (see mat4.translate for matrix data structure).
+			var [x, y, z] = this.transformation.shear;
 
+			this.localShear = [1, y, z, 0, x, 1, z, 0, x, y, 1, 0, 0, 0, 0, 1];
+
+			mat4.multiply(this.localModelview, this.localShear);
 			// END exercise Shear
 
 			// Locally we are up to date, but we have to adjust world MV.
@@ -345,7 +349,7 @@ define(["exports", "shader"], function(exports, shader) {
 	 */
 	function shear(vec, setTo) {
 		// BEGIN exercise Shear
-
+		this.transform(this.transformation.shear, vec, setTo);
 		// END exercise Shear
 	}
 
