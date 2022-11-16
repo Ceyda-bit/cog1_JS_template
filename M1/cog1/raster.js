@@ -125,71 +125,66 @@ function (exports, shader, framebuffer, data) {
    		var interpolationWeight = 0;
    		var deltaInterpolationWeight;
 
-   		// BEGIN exercise Bresenham
+   	// BEGIN exercise Bresenham
    		// Comment out the next two lines.
    		// drawLine(startX, startY, endX, endY, color);
    		// return;
 
    		// Skip it, if the line is just a point.
    		if (dX == 0 && dY == 0) {
-	 		return;
-   		}
+			return;
+		  }
 
-   		// Optionally draw start point as is the same
-		// as the end point of the previous edge.
-		// In any case, do not add an intersection for start point here,
-		// this should happen later in the scanline function.
+		  // Optionally draw start point as is the same
+		  // as the end point of the previous edge.
+		  // In any case, do not add an intersection for start point here,
+		  // this should happen later in the scanline function.
 
-		// Distinction of cases for driving variable.
-		if(dXAbs >= dYAbs){
-			// x is driving variable.
-			dz = (endZ - startZ) / Math.abs(dX);
-			var lasty = y - dYSign;
-			framebuffer.set(x, y, z, color);
-			e = dXAbs - dYAbs2;
-			for(x;x < endX;x++){
-				if(e>0){
-					e = e - dYAbs2;
-					framebuffer.set(x, y, z, color);
-				}
-				else{
-					y = y + dYSign;
-					e = e + dXdYdiff2;
-					framebuffer.set(x, y, z, color);
-				}
-				if(startY != endY && x != endX && y != lasty && y != startY && y != endY) {
-					addIntersection(x, y, z, interpolationWeight, edgeStartVertexIndex, edgeEndVertexIndex, edgeStartTextureCoord, edgeEndTextureCoord);
-				}
-				lasty = y;
-				z += dz;
-			}
-		}
-		else{
-			// y is driving variable.
-			dz = (endZ - startZ) / Math.abs(dY);
-			framebuffer.set(x, y, z, color);
-			e = dYAbs - dXAbs2;
-			while(y !== endY){
-				if(e>0){
-					e = e - dXAbs2;
-					framebuffer.set(x, y, z, color);
-					y = y + dYSign;
-				}
-				else{
-					x = x + dXSign;
-					e = e + dYdXdiff2;
-					framebuffer.set(x, y, z, color);
-					y = y + dYSign;
-				}
-				if(y!=endY) {
-					addIntersection(x, y, z, interpolationWeight, edgeStartVertexIndex, edgeEndVertexIndex, edgeStartTextureCoord, edgeEndTextureCoord);
-				}
-				z += dz;
-			}
-		}
-		// END exercise Bresenham		
-	};
-
+		  // Distinction of cases for driving variable.
+	   if(dXAbs >= dYAbs){
+		   // x is driving variable.
+		   dz = (endZ - startZ) / dXAbs;
+		   e = dXAbs - dYAbs2;
+		   while (x != endX || y != endY){
+			   x = x + dXSign;
+			   if (e > 0){
+				   e = e - dYAbs2;
+			   } else {
+				   y = y + dYSign;
+				   e = e + dXdYdiff2;
+				   // Do not add intersections for points on horizontal line
+				   // and not the end point, which is done in scanline.
+				   if(storeIntersectionForScanlineFill && x != endX && y != endY){
+					   addIntersection(x, y, z, interpolationWeight, edgeStartVertexIndex, edgeEndVertexIndex, edgeStartTextureCoord, edgeEndTextureCoord);
+				   }
+			   }
+			   framebuffer.set(x, y, getZ(x,y), color);
+			   z = z + dz;
+		   }
+	   } else {
+		   // y is driving variable.
+		   dz = (endZ - startZ) / dYAbs;
+		   e = dYAbs - dXAbs2;
+		   while (y != endY){
+			   y = y + dYSign;
+			   if (e > 0){
+				   e = e - dXAbs2;   
+			   } else {
+				   x = x + dXSign;
+				   e = e + dYdXdiff2;
+			   }
+			   // Add every intersection as there can be only one per scan line.
+			   // but not the end point, which is done in scanline.
+			   if(storeIntersectionForScanlineFill && y != endY){
+				   addIntersection(x, y, z, interpolationWeight, edgeStartVertexIndex, edgeEndVertexIndex, edgeStartTextureCoord, edgeEndTextureCoord);
+			   }
+			   framebuffer.set(x, y, getZ(x,y), color);
+			   z = z + dz;
+		   }
+	   }
+	   return;
+		  // END exercise Bresenham
+	}
  	/**
   	* Draw edges of given polygon. See also scanlineFillPolygon().
   	*
