@@ -20,7 +20,6 @@
 		 // scenegraph.createNodeWithModel("sphere", "sphere");
 		 var cube = scenegraph.createNodeWithModel("cube", "cube", {scale: 300});
 		 cube.rotateTo([0.5, 0.3, 0]);
-		 // scenegraph.createPointLightNode("light", "diamond");
 		 scenegraph.setLights(0.5, 0.6, [200, 200, 300], 4.0, 10);
  
 		 // BEGIN exercise myModel
