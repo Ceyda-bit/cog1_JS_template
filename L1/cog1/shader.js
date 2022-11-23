@@ -315,6 +315,7 @@
 	 * See function none.
 	 */
 	function flat(color) {
+
 		vec3.scale(color.rgba, polygonLightIntensity, color.rgbaShaded);
 	}
 
@@ -323,9 +324,12 @@
 	 */
 	function flatInit() {
 		// Calculate the center point of the polygon.
+		
 		var polygonCenter = [0, 0, 0];
-		for(var i = 0; i < polygon.length; i++) {
-			vec3.add(polygonCenter, vertices[polygon[i]]);
+
+		for(var v = 0; v < polygon.length; v++) {
+
+			vec3.add(polygonCenter, vertices[polygon[v]]);
 		}
 		vec3.scale(polygonCenter, 1 / polygon.length);
 
