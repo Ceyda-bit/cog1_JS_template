@@ -27,6 +27,14 @@
 				boundingBoxMax: [200, 200, 200]
 			});
 
+			var diamond_2 = scenegraph.createNodeWithModel("diamond_1", "diamond", { resursionDepth: 2, scale: 20 }, box);
+			animation.assign(diamond_2, 'move', {
+				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
+				sphereRadius: 20,
+				boundingBoxMin: [-200, -200, -200],
+				boundingBoxMax: [200, 200, 200]
+			});
+
 			var sphere_1 = scenegraph.createNodeWithModel("sphere_1", "sphere", { resursionDepth: 2, scale: 20 }, box);
 			animation.assign(sphere_1, 'move', {
 				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
