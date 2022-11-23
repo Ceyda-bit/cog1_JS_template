@@ -17,25 +17,49 @@
 	  */
 	 function init() {
 
-		var sun = scenegraph.createNodeWithModel("sun", "sphere", {recursionDepth: 2, scale: 100},null, true);
-		animation.assign(sun, "rotate", {rotationSpeed: [0, 0.01, 0]});
+		var box = scenegraph.createNodeWithModel("box", "cube", { scale: 200 })
 
-		var earth = scenegraph.createNodeWithModel("earth", "sphere", {recursionDepth: 2, scale: 70}, sun);
-		earth.translate([500, 0, 0]);
-		animation.assign(earth, "rotate", {rotationSpeed: [0, 0.03, 0]});
+			var diamond_1 = scenegraph.createNodeWithModel("diamond_1", "diamond", { resursionDepth: 2, scale: 20 }, box);
+			animation.assign(diamond_1, 'move', {
+				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
+				sphereRadius: 20,
+				boundingBoxMin: [-200, -200, -200],
+				boundingBoxMax: [200, 200, 200]
+			});
 
-		var moon = scenegraph.createNodeWithModel("moon", "sphere", {recursionDepth: 2, scale: 30}, earth);
-		moon.translate([150, 0, 0]);
-		animation.assign(moon, "rotate", {rotationSpeed: [0, 0.01, 0]});
+			var sphere_1 = scenegraph.createNodeWithModel("sphere_1", "sphere", { resursionDepth: 2, scale: 20 }, box);
+			animation.assign(sphere_1, 'move', {
+				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
+				sphereRadius: 20,
+				boundingBoxMin: [-200, -200, -200],
+				boundingBoxMax: [200, 200, 200]
+			});
 
-		 return;
+			var cube_1 = scenegraph.createNodeWithModel("cube_1", "cube", { scale: 20 }, box);
+			animation.assign(cube_1, 'move', {
+				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
+				sphereRadius: 20,
+				boundingBoxMin: [-200, -200, -200],
+				boundingBoxMax: [200, 200, 200]
+			});
 
+			var teapot_1 = scenegraph.createNodeWithModel("teapot_1", "teapot", { scale: 2 }, box);
+			animation.assign(teapot_1, 'move', {
+				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
+				sphereRadius: 20,
+				boundingBoxMin: [-190, -200, -190],
+				boundingBoxMax: [190, 200, 190]
+			});
 
+			var star_1 = scenegraph.createNodeWithModel("star_1", "star", { scale: 2 }, box);
+			animation.assign(star_1, 'move', {
+				movementSpeed: [Math.random() * 2, Math.random() * 2, Math.random() * 2],
+				sphereRadius: 20,
+				boundingBoxMin: [-170, -170, -170],
+				boundingBoxMax: [170, 170, 170]
+			});
 
-
-
-
-
+			return;
 
 
 
